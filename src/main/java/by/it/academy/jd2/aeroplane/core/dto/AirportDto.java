@@ -1,31 +1,32 @@
-package by.it.academy.jd2.aeroplane.dto;
+package by.it.academy.jd2.aeroplane.core.dto;
 
 import java.util.Objects;
 
-public class Aerodrome {
-    private String airportCode;
+public class AirportDto {
+    private String Id;
     private String airportName;
     private String city;
     private String coordinates;
-    private String timezone;
+    private String timeZone;
 
-    public Aerodrome() {
+
+    public AirportDto() {
     }
 
-    public Aerodrome(String airportCode, String airportName, String city, String coordinates, String timezone) {
-        this.airportCode = airportCode;
+    public AirportDto(String airportCode, String airportName, String city, String coordinates, String timezone) {
+        this.Id = airportCode;
         this.airportName = airportName;
         this.city = city;
         this.coordinates = coordinates;
-        this.timezone = timezone;
+        this.timeZone = timezone;
     }
 
-    public String getAirportCode() {
-        return airportCode;
+    public String getId() {
+        return Id;
     }
 
-    public void setAirportCode(String airportCode) {
-        this.airportCode = airportCode;
+    public void setId(String id) {
+        this.Id = id;
     }
 
     public String getAirportName() {
@@ -53,11 +54,11 @@ public class Aerodrome {
     }
 
     public String getTimezone() {
-        return timezone;
+        return timeZone;
     }
 
     public void setTimezone(String timezone) {
-        this.timezone = timezone;
+        this.timeZone = timezone;
     }
 
     @Override
@@ -65,33 +66,33 @@ public class Aerodrome {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
-        Aerodrome airport = (Aerodrome) o;
+        AirportDto airport = (AirportDto) o;
 
-        if (!Objects.equals(airportCode, airport.airportCode)) return false;
+        if (!Objects.equals(Id, airport.Id)) return false;
         if (!Objects.equals(airportName, airport.airportName)) return false;
         if (!Objects.equals(city, airport.city)) return false;
         if (!Objects.equals(coordinates, airport.coordinates)) return false;
-        return Objects.equals(timezone, airport.timezone);
+        return Objects.equals(timeZone, airport.timeZone);
     }
 
     @Override
     public int hashCode() {
-        int result = airportCode != null ? airportCode.hashCode() : 0;
+        int result = Id != null ? Id.hashCode() : 0;
         result = 31 * result + (airportName != null ? airportName.hashCode() : 0);
         result = 31 * result + (city != null ? city.hashCode() : 0);
         result = 31 * result + (coordinates != null ? coordinates.hashCode() : 0);
-        result = 31 * result + (timezone != null ? timezone.hashCode() : 0);
+        result = 31 * result + (timeZone != null ? timeZone.hashCode() : 0);
         return result;
     }
 
     @Override
     public String toString() {
         return "Airport{" +
-                "airportCode='" + airportCode + '\'' +
+                "airportCode='" + Id + '\'' +
                 ", airportName='" + airportName + '\'' +
                 ", city='" + city + '\'' +
                 ", coordinates='" + coordinates + '\'' +
-                ", timezone='" + timezone + '\'' +
+                ", timezone='" + timeZone + '\'' +
                 '}';
     }
 }

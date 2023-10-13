@@ -1,16 +1,16 @@
-package by.it.academy.jd2.aeroplane.dto;
+package by.it.academy.jd2.aeroplane.core.dto;
 
 import java.util.Objects;
 
-public class Aeroplane {
+public class AeroplaleDto {
     private String aircraftCode;
     private String model;
     private Integer range;
 
-    public Aeroplane() {
+    public AeroplaleDto() {
     }
 
-    public Aeroplane(String aircraftCode, String model, Integer range) {
+    public AeroplaleDto(String aircraftCode, String model, Integer range) {
         this.aircraftCode = aircraftCode;
         this.model = model;
         this.range = range;
@@ -45,7 +45,7 @@ public class Aeroplane {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
-        Aeroplane aircraft = (Aeroplane) o;
+        AeroplaleDto aircraft = (AeroplaleDto) o;
 
         if (!Objects.equals(aircraftCode, aircraft.aircraftCode))
             return false;
