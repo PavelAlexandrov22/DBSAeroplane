@@ -1,10 +1,12 @@
 package by.it.academy.jd2.aeroplane.services;
 
+import by.it.academy.jd2.aeroplane.core.dto.Airport;
 import by.it.academy.jd2.aeroplane.dao.api.IAirportDao;
 import by.it.academy.jd2.aeroplane.services.api.IAirportServices;
-import by.it.academy.jd2.aeroplane.dao.entity.AirportEntity;
+
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 
 public class AirportService implements IAirportServices {
@@ -16,8 +18,12 @@ public class AirportService implements IAirportServices {
 
 
     @Override
-    public List<AirportEntity> getAirport() {
-        return airportDao.getAirports();
+    public List<Airport> getAirport() {
+
+        return airportDao.getAirports().stream()
+                .map(airportEntity -> new Airport(airportEntity.getAirportCode(), airportEntity.getAirportName(),
+                        airportEntity.getCity(), airportEntity.getCoordinates(),
+                        airportEntity.getTimezone())).collect(Collectors.toList());
     }
 }
 

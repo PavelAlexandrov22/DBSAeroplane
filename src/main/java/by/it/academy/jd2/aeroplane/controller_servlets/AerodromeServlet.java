@@ -1,5 +1,6 @@
 package by.it.academy.jd2.aeroplane.controller_servlets;
 
+import by.it.academy.jd2.aeroplane.core.dto.Airport;
 import by.it.academy.jd2.aeroplane.services.api.IAirportServices;
 
 import by.it.academy.jd2.aeroplane.dao.entity.AirportEntity;
@@ -23,7 +24,7 @@ public class AerodromeServlet extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
 
-        List<AirportEntity> airports = aerodromeServices.getAirport();
+        List<Airport> airports = aerodromeServices.getAirport();
         req.setAttribute("airport", airports);
         req.getRequestDispatcher("/ui/airport.jsp").forward(req, resp);
 

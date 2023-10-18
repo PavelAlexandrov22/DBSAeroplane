@@ -2,14 +2,15 @@ package by.it.academy.jd2.aeroplane.services.api;
 
 
 
-import by.it.academy.jd2.aeroplane.dao.entity.FlightEntity;
+import by.it.academy.jd2.aeroplane.core.dto.Flight;
+import by.it.academy.jd2.aeroplane.core.dto.FlightFilter;
+import by.it.academy.jd2.aeroplane.core.dto.PageSize;
+
 
 import java.util.List;
 
 public interface IFlightServices {
 
-    List<FlightEntity> getFlights();
-    List<FlightEntity> getFlights(int page, int size, List<String> filters);
-    List<FlightEntity> getFlights(int page, int size);
+    List<Flight> getFlights(FlightFilter filter, PageSize pageSize);
 
 }

@@ -1,20 +1,20 @@
 package by.it.academy.jd2.aeroplane.dao.factory;
 
 import by.it.academy.jd2.aeroplane.dao.AeroplaneDao;
-import by.it.academy.jd2.aeroplane.dao.api.IAeroplaneDao;
+import by.it.academy.jd2.aeroplane.dao.api.IAirplaneDao;
 import by.it.academy.jd2.aeroplane.dao.data_source.EMFFactory;
 
-public class AeroplaneDaoFactory {
+public class AirplaneDaoFactory {
 
     private static volatile AeroplaneDao instance;
 
 
-    private AeroplaneDaoFactory() {
+    private AirplaneDaoFactory() {
     }
 
-    public static IAeroplaneDao getInstance(){
+    public static IAirplaneDao getInstance(){
         if(instance == null){
-            synchronized (AeroplaneDaoFactory.class){
+            synchronized (AirplaneDaoFactory.class){
                if(instance == null){
                    instance = new AeroplaneDao(EMFFactory.getInstance());
                }

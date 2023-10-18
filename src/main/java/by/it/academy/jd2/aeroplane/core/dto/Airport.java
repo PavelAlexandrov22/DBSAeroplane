@@ -2,7 +2,7 @@ package by.it.academy.jd2.aeroplane.core.dto;
 
 import java.util.Objects;
 
-public class AirportDto {
+public class Airport {
     private String Id;
     private String airportName;
     private String city;
@@ -10,10 +10,10 @@ public class AirportDto {
     private String timeZone;
 
 
-    public AirportDto() {
+    public Airport() {
     }
 
-    public AirportDto(String airportCode, String airportName, String city, String coordinates, String timezone) {
+    public Airport(String airportCode, String airportName, String city, String coordinates, String timezone) {
         this.Id = airportCode;
         this.airportName = airportName;
         this.city = city;
@@ -66,7 +66,7 @@ public class AirportDto {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
-        AirportDto airport = (AirportDto) o;
+        Airport airport = (Airport) o;
 
         if (!Objects.equals(Id, airport.Id)) return false;
         if (!Objects.equals(airportName, airport.airportName)) return false;

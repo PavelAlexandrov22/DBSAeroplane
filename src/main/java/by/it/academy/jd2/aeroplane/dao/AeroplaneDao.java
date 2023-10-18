@@ -1,5 +1,5 @@
 package by.it.academy.jd2.aeroplane.dao;
-import by.it.academy.jd2.aeroplane.dao.api.IAeroplaneDao;
+import by.it.academy.jd2.aeroplane.dao.api.IAirplaneDao;
 import by.it.academy.jd2.aeroplane.dao.data_source.DataSourceCreator;
 import by.it.academy.jd2.aeroplane.dao.entity.AirCraftEntity;
 import jakarta.persistence.EntityManager;
@@ -9,7 +9,7 @@ import jakarta.persistence.criteria.CriteriaQuery;
 import javax.sql.DataSource;
 import java.util.List;
 
-public class AeroplaneDao implements IAeroplaneDao {
+public class AeroplaneDao implements IAirplaneDao {
 
     private DataSource ds = DataSourceCreator.getInstance();
 

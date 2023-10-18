@@ -2,15 +2,15 @@ package by.it.academy.jd2.aeroplane.core.dto;
 
 import java.util.Objects;
 
-public class AeroplaleDto {
+public class Airplane {
     private String aircraftCode;
     private String model;
     private Integer range;
 
-    public AeroplaleDto() {
+    public Airplane() {
     }
 
-    public AeroplaleDto(String aircraftCode, String model, Integer range) {
+    public Airplane(String aircraftCode, String model, Integer range) {
         this.aircraftCode = aircraftCode;
         this.model = model;
         this.range = range;
@@ -45,7 +45,7 @@ public class AeroplaleDto {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
-        AeroplaleDto aircraft = (AeroplaleDto) o;
+        Airplane aircraft = (Airplane) o;
 
         if (!Objects.equals(aircraftCode, aircraft.aircraftCode))
             return false;

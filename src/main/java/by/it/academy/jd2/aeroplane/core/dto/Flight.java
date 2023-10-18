@@ -1,13 +1,10 @@
-package by.it.academy.jd2.aeroplane.dao.entity;
+package by.it.academy.jd2.aeroplane.core.dto;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Table;
 
-import java.sql.Timestamp;
 import java.util.Objects;
-@Entity
-@Table(schema = "bookings", name = "flight")
-public class FlightEntity {
+import java.util.TimeZone;
+
+public class Flight {
 
     private String flightId;
     private String flightNo;
@@ -30,16 +27,12 @@ public class FlightEntity {
     private String actualArrivalLocal;
     private String actualDuration;
 
-    public FlightEntity() {
+
+
+    public Flight() {
     }
 
-    public FlightEntity(String flightId, String flightNo, String scheduledDeparture,
-                        String scheduledDepartureLocal, String scheduledArrival, String scheduledArrivalLocal,
-                        String scheduledDuration, String departureAirport, String departureAirportName,
-                        String departureCity, String arrivalAirport, String arrivalAirportName,
-                        String arrivalCity, String status, String aircraftCode,
-                        String actualDeparture, String actualDepartureLocal, String actualArrival,
-                        String actualArrivalLocal, String actualDuration) {
+    public Flight(String flightId, String flightNo, String scheduledDeparture, String scheduledDepartureLocal, String scheduledArrival, String scheduledArrivalLocal, String scheduledDuration, String departureAirport, String departureAirportName, String departureCity, String arrivalAirport, String arrivalAirportName, String arrivalCity, String status, String aircraftCode, String actualDeparture, String actualDepartureLocal, String actualArrival, String actualArrivalLocal, String actualDuration) {
         this.flightId = flightId;
         this.flightNo = flightNo;
         this.scheduledDeparture = scheduledDeparture;
@@ -227,42 +220,43 @@ public class FlightEntity {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
-        FlightEntity that = (FlightEntity) o;
+        Flight flight = (Flight) o;
 
-        if (!Objects.equals(flightId, that.flightId)) return false;
-        if (!Objects.equals(flightNo, that.flightNo)) return false;
-        if (!Objects.equals(scheduledDeparture, that.scheduledDeparture))
+        if (!Objects.equals(flightId, flight.flightId)) return false;
+        if (!Objects.equals(flightNo, flight.flightNo)) return false;
+        if (!Objects.equals(scheduledDeparture, flight.scheduledDeparture))
             return false;
-        if (!Objects.equals(scheduledDepartureLocal, that.scheduledDepartureLocal))
+        if (!Objects.equals(scheduledDepartureLocal, flight.scheduledDepartureLocal))
             return false;
-        if (!Objects.equals(scheduledArrival, that.scheduledArrival))
+        if (!Objects.equals(scheduledArrival, flight.scheduledArrival))
             return false;
-        if (!Objects.equals(scheduledArrivalLocal, that.scheduledArrivalLocal))
+        if (!Objects.equals(scheduledArrivalLocal, flight.scheduledArrivalLocal))
             return false;
-        if (!Objects.equals(scheduledDuration, that.scheduledDuration))
+        if (!Objects.equals(scheduledDuration, flight.scheduledDuration))
             return false;
-        if (!Objects.equals(departureAirport, that.departureAirport))
+        if (!Objects.equals(departureAirport, flight.departureAirport))
             return false;
-        if (!Objects.equals(departureAirportName, that.departureAirportName))
+        if (!Objects.equals(departureAirportName, flight.departureAirportName))
             return false;
-        if (!Objects.equals(departureCity, that.departureCity))
+        if (!Objects.equals(departureCity, flight.departureCity))
             return false;
-        if (!Objects.equals(arrivalAirport, that.arrivalAirport))
+        if (!Objects.equals(arrivalAirport, flight.arrivalAirport))
             return false;
-        if (!Objects.equals(arrivalAirportName, that.arrivalAirportName))
+        if (!Objects.equals(arrivalAirportName, flight.arrivalAirportName))
             return false;
-        if (!Objects.equals(arrivalCity, that.arrivalCity)) return false;
-        if (!Objects.equals(status, that.status)) return false;
-        if (!Objects.equals(aircraftCode, that.aircraftCode)) return false;
-        if (!Objects.equals(actualDeparture, that.actualDeparture))
+        if (!Objects.equals(arrivalCity, flight.arrivalCity)) return false;
+        if (!Objects.equals(status, flight.status)) return false;
+        if (!Objects.equals(aircraftCode, flight.aircraftCode))
             return false;
-        if (!Objects.equals(actualDepartureLocal, that.actualDepartureLocal))
+        if (!Objects.equals(actualDeparture, flight.actualDeparture))
             return false;
-        if (!Objects.equals(actualArrival, that.actualArrival))
+        if (!Objects.equals(actualDepartureLocal, flight.actualDepartureLocal))
             return false;
-        if (!Objects.equals(actualArrivalLocal, that.actualArrivalLocal))
+        if (!Objects.equals(actualArrival, flight.actualArrival))
             return false;
-        return Objects.equals(actualDuration, that.actualDuration);
+        if (!Objects.equals(actualArrivalLocal, flight.actualArrivalLocal))
+            return false;
+        return Objects.equals(actualDuration, flight.actualDuration);
     }
 
     @Override
@@ -292,7 +286,7 @@ public class FlightEntity {
 
     @Override
     public String toString() {
-        return "FlightEntity{" +
+        return "Flight{" +
                 "flightId='" + flightId + '\'' +
                 ", flightNo='" + flightNo + '\'' +
                 ", scheduledDeparture='" + scheduledDeparture + '\'' +
