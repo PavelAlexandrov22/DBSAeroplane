@@ -1,4 +1,4 @@
-package by.it.academy.jd2.aeroplane.services.entity;
+package by.it.academy.jd2.aeroplane.dao.entity;
 
 public class Airport {
     private String id;

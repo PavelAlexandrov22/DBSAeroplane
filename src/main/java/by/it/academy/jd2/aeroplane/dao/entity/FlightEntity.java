@@ -1,4 +1,4 @@
-package by.it.academy.jd2.aeroplane.services.entity;
+package by.it.academy.jd2.aeroplane.dao.entity;
 
 import java.sql.Timestamp;
 
