@@ -2,16 +2,16 @@ package by.it.academy.jd2.aeroplane.dao.api;
 
 
 
-import by.it.academy.jd2.aeroplane.services.entity.Flight;
+import by.it.academy.jd2.aeroplane.dao.entity.FlightEntity;
 
 import java.util.List;
 
 public interface IFlightDao {
 
-    List<Flight> getFlights();
+    List<FlightEntity> getFlights();
 
-    List<Flight> getFlights(int page, int size);
+    List<FlightEntity> getFlights(int page, int size);
 
-    List<Flight> getFlights(int page, int size, List<String> filters);
+    List<FlightEntity> getFlights(int page, int size, List<String> filters);
 
 }

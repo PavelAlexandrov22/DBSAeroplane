@@ -1,11 +1,11 @@
 package by.it.academy.jd2.aeroplane.dao.api;
-import by.it.academy.jd2.aeroplane.services.entity.Airport;
+import by.it.academy.jd2.aeroplane.dao.entity.AirportEntity;
 
 
 import java.util.List;
 
 public interface IAirportDao {
 
-    List<Airport> getAirports() ;
+    List<AirportEntity> getAirports() ;
 
 }

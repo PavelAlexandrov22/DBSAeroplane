@@ -40,7 +40,7 @@ public class DataSourceCreator {
                 try {
                     instance = new DataSourceCreator();
                 } catch (PropertyVetoException e) {
-                    throw new RuntimeException("Ошибка подключния драйвера" , e);
+                    throw new RuntimeException("Ошибка подключения драйвера" , e);
                 }
             }
         }

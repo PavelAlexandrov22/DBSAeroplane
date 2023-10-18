@@ -1,11 +1,11 @@
 package by.it.academy.jd2.aeroplane.dao.api;
 
 
-import by.it.academy.jd2.aeroplane.services.entity.AirCraft;
+import by.it.academy.jd2.aeroplane.dao.entity.AirCraftEntity;
 
 import java.util.List;
 
 public interface IAeroplaneDao {
 
-    List<AirCraft> getAirCrafts() ;
+    List<AirCraftEntity> getAirCrafts() ;
 }

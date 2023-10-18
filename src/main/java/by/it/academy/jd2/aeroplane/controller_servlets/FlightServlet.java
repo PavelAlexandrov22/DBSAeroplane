@@ -2,7 +2,7 @@ package by.it.academy.jd2.aeroplane.controller_servlets;
 
 import by.it.academy.jd2.aeroplane.dao.enums.Filters;
 import by.it.academy.jd2.aeroplane.services.api.IFlightServices;
-import by.it.academy.jd2.aeroplane.services.entity.Flight;
+import by.it.academy.jd2.aeroplane.dao.entity.FlightEntity;
 import by.it.academy.jd2.aeroplane.services.factory.FlightServicesFactory;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
@@ -27,10 +27,10 @@ public class FlightServlet extends HttpServlet {
         String size = req.getParameter("size") ;
 
         if(page != null && size != null){
-            List<Flight> flights = flightServices.getFlights(Integer.parseInt(page), Integer.parseInt(size));
+            List<FlightEntity> flights = flightServices.getFlights(Integer.parseInt(page), Integer.parseInt(size));
             req.setAttribute("flights", flights);
         }else {
-            List<Flight> flights = flightServices.getFlights();
+            List<FlightEntity> flights = flightServices.getFlights();
             req.setAttribute("flights", flights);
         }
 
@@ -46,7 +46,7 @@ public class FlightServlet extends HttpServlet {
         String size = req.getParameter("size");
         String[] selectedFilters = req.getParameterValues("filters");
 
-        List<Flight> flights = new ArrayList<>();
+        List<FlightEntity> flights = new ArrayList<>();
         List<String> activeFilters = new ArrayList<>();
 
 

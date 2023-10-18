@@ -2,7 +2,7 @@ package by.it.academy.jd2.aeroplane.services;
 
 import by.it.academy.jd2.aeroplane.dao.api.IAirportDao;
 import by.it.academy.jd2.aeroplane.services.api.IAirportServices;
-import by.it.academy.jd2.aeroplane.services.entity.Airport;
+import by.it.academy.jd2.aeroplane.dao.entity.AirportEntity;
 
 import java.util.List;
 
@@ -16,7 +16,7 @@ public class AirportService implements IAirportServices {
 
 
     @Override
-    public List<Airport> getAirport() {
+    public List<AirportEntity> getAirport() {
         return airportDao.getAirports();
     }
 }

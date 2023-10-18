@@ -1,10 +1,10 @@
 package by.it.academy.jd2.aeroplane.dao;
 
 
-import by.it.academy.jd2.aeroplane.core.dto.FlightDto;
 import by.it.academy.jd2.aeroplane.dao.api.IFlightDao;
 import by.it.academy.jd2.aeroplane.dao.data_source.DataSourceCreator;
-import by.it.academy.jd2.aeroplane.services.entity.Flight;
+import by.it.academy.jd2.aeroplane.dao.entity.FlightEntity;
+import jakarta.persistence.EntityManagerFactory;
 
 import javax.sql.DataSource;
 import java.sql.*;
@@ -13,6 +13,13 @@ import java.util.List;
 
 public class FlightDao implements IFlightDao {
     DataSource ds = DataSourceCreator.getInstance();
+
+    private final EntityManagerFactory emf;
+
+
+    public FlightDao(EntityManagerFactory emf) {
+        this.emf = emf;
+    }
 
 
     String sql = "SELECT f.flight_id,\n" +
@@ -40,8 +47,7 @@ public class FlightDao implements IFlightDao {
             "    airports arr\n" +
             "  WHERE f.departure_airport = dep.airport_code AND f.arrival_airport = arr.airport_code";
 
-    public FlightDao() {
-    }
+
 
 
 
@@ -49,15 +55,15 @@ public class FlightDao implements IFlightDao {
 
 
     @Override
-    public List<Flight> getFlights() {
-        List<Flight> flights = new ArrayList<>();
+    public List<FlightEntity> getFlights() {
+        List<FlightEntity> flights = new ArrayList<>();
 
         try (Connection connection = ds.getConnection();
              PreparedStatement ps = connection.prepareStatement(sql + ";");
              ResultSet resultSet = ps.executeQuery()) {
 
             while (resultSet.next()) {
-                flights.add(new Flight(resultSet.getInt(1),
+                flights.add(new FlightEntity(resultSet.getInt(1),
                         resultSet.getString(2),
                         resultSet.getTimestamp(3),
                         resultSet.getTimestamp(4),
@@ -75,14 +81,14 @@ public class FlightDao implements IFlightDao {
             }
             return flights;
         } catch (SQLException e) {
-            throw new RuntimeException("Ошибка полуения данных", e);
+            throw new RuntimeException("Ошибка получения данных", e);
         }
 
     }
 
     @Override
-    public List<Flight> getFlights(int page, int size) {
-        List<Flight> flights = new ArrayList<>();
+    public List<FlightEntity> getFlights(int page, int size) {
+        List<FlightEntity> flights = new ArrayList<>();
         String sql = this.sql + " LIMIT " + size + " OFFSET " + ((page - 1) * size);
 
         try (Connection connection = ds.getConnection();
@@ -90,7 +96,7 @@ public class FlightDao implements IFlightDao {
              ResultSet resultSet = ps.executeQuery()) {
 
             while (resultSet.next()) {
-                flights.add(new Flight(resultSet.getInt(1),
+                flights.add(new FlightEntity(resultSet.getInt(1),
                         resultSet.getString(2),
                         resultSet.getTimestamp(3),
                         resultSet.getTimestamp(4),
@@ -113,9 +119,9 @@ public class FlightDao implements IFlightDao {
     }
 
     @Override
-    public List<Flight> getFlights(int page, int size, List<String> filters) {
+    public List<FlightEntity> getFlights(int page, int size, List<String> filters) {
         String sql = createFiltersRequest(page, size, filters);
-        List<Flight> flights = new ArrayList<>();
+        List<FlightEntity> flights = new ArrayList<>();
 
 
         try (Connection connection = ds.getConnection();
@@ -123,7 +129,7 @@ public class FlightDao implements IFlightDao {
              ResultSet resultSet = ps.executeQuery()) {
 
             while (resultSet.next()) {
-                flights.add(new Flight(resultSet.getInt(1),
+                flights.add(new FlightEntity(resultSet.getInt(1),
                         resultSet.getString(2),
                         resultSet.getTimestamp(3),
                         resultSet.getTimestamp(4),

@@ -1,6 +1,6 @@
 package by.it.academy.jd2.aeroplane.controller_servlets;
 import by.it.academy.jd2.aeroplane.services.api.IAeroplaneServices;
-import by.it.academy.jd2.aeroplane.services.entity.AirCraft;
+import by.it.academy.jd2.aeroplane.dao.entity.AirCraftEntity;
 import by.it.academy.jd2.aeroplane.services.factory.AeroplaneServicesFactory;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
@@ -21,7 +21,7 @@ public class AeroplaneServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
-        List<AirCraft> airCrafts = aeroplaneServices.getAirCrafts();
+        List<AirCraftEntity> airCrafts = aeroplaneServices.getAirCrafts();
 
         req.setAttribute("aircrafts", airCrafts);
         req.getRequestDispatcher("/ui/airplane.jsp").forward(req, resp);

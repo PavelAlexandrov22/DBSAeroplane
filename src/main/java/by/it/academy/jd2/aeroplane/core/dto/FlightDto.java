@@ -168,13 +168,54 @@ public class FlightDto {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        FlightDto flight = (FlightDto) o;
-        return flightId == flight.flightId && Objects.equals(flightNo, flight.flightNo) && Objects.equals(scheduledDeparture, flight.scheduledDeparture) && Objects.equals(scheduledDepartureLocal, flight.scheduledDepartureLocal) && Objects.equals(scheduledArrival, flight.scheduledArrival) && Objects.equals(getScheduledArrivalLocal, flight.getScheduledArrivalLocal) && Objects.equals(interval, flight.interval) && Objects.equals(departureAirport, flight.departureAirport) && Objects.equals(departureAirportName, flight.departureAirportName) && Objects.equals(departureCity, flight.departureCity) && Objects.equals(arrivalAirport, flight.arrivalAirport) && Objects.equals(arrivalAirportName, flight.arrivalAirportName) && Objects.equals(arrivalCity, flight.arrivalCity) && Objects.equals(status, flight.status) && Objects.equals(aircraftCode, flight.aircraftCode);
+
+        FlightDto flightDto = (FlightDto) o;
+
+        if (flightId != flightDto.flightId) return false;
+        if (!Objects.equals(flightNo, flightDto.flightNo)) return false;
+        if (!Objects.equals(scheduledDeparture, flightDto.scheduledDeparture))
+            return false;
+        if (!Objects.equals(scheduledDepartureLocal, flightDto.scheduledDepartureLocal))
+            return false;
+        if (!Objects.equals(scheduledArrival, flightDto.scheduledArrival))
+            return false;
+        if (!Objects.equals(getScheduledArrivalLocal, flightDto.getScheduledArrivalLocal))
+            return false;
+        if (!Objects.equals(interval, flightDto.interval)) return false;
+        if (!Objects.equals(departureAirport, flightDto.departureAirport))
+            return false;
+        if (!Objects.equals(departureAirportName, flightDto.departureAirportName))
+            return false;
+        if (!Objects.equals(departureCity, flightDto.departureCity))
+            return false;
+        if (!Objects.equals(arrivalAirport, flightDto.arrivalAirport))
+            return false;
+        if (!Objects.equals(arrivalAirportName, flightDto.arrivalAirportName))
+            return false;
+        if (!Objects.equals(arrivalCity, flightDto.arrivalCity))
+            return false;
+        if (!Objects.equals(status, flightDto.status)) return false;
+        return Objects.equals(aircraftCode, flightDto.aircraftCode);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(flightId, flightNo, scheduledDeparture, scheduledDepartureLocal, scheduledArrival, getScheduledArrivalLocal, interval, departureAirport, departureAirportName, departureCity, arrivalAirport, arrivalAirportName, arrivalCity, status, aircraftCode);
+        int result = flightId;
+        result = 31 * result + (flightNo != null ? flightNo.hashCode() : 0);
+        result = 31 * result + (scheduledDeparture != null ? scheduledDeparture.hashCode() : 0);
+        result = 31 * result + (scheduledDepartureLocal != null ? scheduledDepartureLocal.hashCode() : 0);
+        result = 31 * result + (scheduledArrival != null ? scheduledArrival.hashCode() : 0);
+        result = 31 * result + (getScheduledArrivalLocal != null ? getScheduledArrivalLocal.hashCode() : 0);
+        result = 31 * result + (interval != null ? interval.hashCode() : 0);
+        result = 31 * result + (departureAirport != null ? departureAirport.hashCode() : 0);
+        result = 31 * result + (departureAirportName != null ? departureAirportName.hashCode() : 0);
+        result = 31 * result + (departureCity != null ? departureCity.hashCode() : 0);
+        result = 31 * result + (arrivalAirport != null ? arrivalAirport.hashCode() : 0);
+        result = 31 * result + (arrivalAirportName != null ? arrivalAirportName.hashCode() : 0);
+        result = 31 * result + (arrivalCity != null ? arrivalCity.hashCode() : 0);
+        result = 31 * result + (status != null ? status.hashCode() : 0);
+        result = 31 * result + (aircraftCode != null ? aircraftCode.hashCode() : 0);
+        return result;
     }
 
     @Override
